@@ -1,0 +1,22 @@
+<h1>Sign In</h1>
+<form id="register-form" [formGroup]="loginForm">
+
+  <div>
+    <input class="input-item" type="email" name="email" placeholder="Email" formControlName="email">
+  </div>
+
+  <div>
+    <input class="input-item" type="password" name="password" placeholder="Password" required maxlength="8" formControlName="password">
+  </div>
+
+  <div>
+      <p><input type="checkbox" id="text-check">I agree to accept terms and conditions</p>
+  </div>
+
+  <button id="btn-submit" (click)="login()">SIGN IN</button>
+  <button id="btn-submit1">SIGN IN WITH GOOGLE </button>
+  <button id="btn-submit2">SIGN IN WITH FACEBOOK</button>
+
+
+</form>
+

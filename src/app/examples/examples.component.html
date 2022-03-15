@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <label for="">Number1:</label>
+        <input type="number" [(ngModel)]="x">
+        <br>
+        <label for="">Number1:</label>
+        <input type="number" [(ngModel)]="y">
+        <br>
+        <button (click)="summation()">sum</button>
+        <button (click)="sub()">sub</button>
+        <button (click)="mul()">mul</button>
+        <button (click)="division()">div</button>
+    </div>
+
+
+
+
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <label for="">Number1:</label>
+        <input type="number" [(ngModel)]="a">
+        <br>
+        <button (click)="square()">square</button>
+        <button (click)="cube()">cube</button>
+    </div>
+
+
+
+
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <label for="">Height:</label>
+        <input type="number" [(ngModel)]="h">
+        <br>
+        <label for="">Width:</label>
+        <input type="number" [(ngModel)]="w">
+        <br>
+        <button (click)="area()">Area</button>
+        <button (click)="perimeter()">Perimeter</button>
+    </div>
+
+
+
+
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <input type="text" [(ngModel)]="name">
+        <br>
+        <button (click)="showname()" placeholder="Enter Name">Addname</button>
+        <ol type="i">
+            <li *ngFor="let name of names">{{name}}</li>
+        </ol>
+    </div>
+
+
+
+
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <textarea type="text" [(ngModel)]="comment"></textarea>
+        <br>
+        <button (click)="showcomment()" placeholder="comment">Comment</button>
+        <ol type="A">
+            <li *ngFor="let comment of comments">{{comment}}</li>
+        </ol>
+
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 col-12 divs">
+        <label for="">Name:</label>
+        <input type="text" [(ngModel)]="entername">
+        <br>
+        <label for="">Quantity:</label>
+        <input type="number" [(ngModel)]="quantity">
+        <br>
+        <button (click)="addtocart()">Add to Cart</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>{{product.entername|uppercase}}</td>
+                    <td>{{product.quantity}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

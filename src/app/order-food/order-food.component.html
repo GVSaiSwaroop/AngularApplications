@@ -1,0 +1,239 @@
+<form [formGroup]="orderfood">
+
+    <h1>Order Food</h1>
+    <br>
+
+               <!-- Name of the person-->
+    <h2>Details:</h2>
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="name"> Name: </label>
+        </div>
+        <div class="col-sm-8">
+            <input type="password" id="name" class="form-control" placeholder="Enter your name" name="name" formControlName="name" [ngClass]="orderfood.get('name')?.invalid && orderfood.get('name')?.touched ? 'r' : '' ">
+            <div *ngIf="orderfood.get('name')?.invalid && orderfood.get('name')?.touched">
+                <p *ngIf="orderfood.get('name')?.errors?.['required']">*Invalid field</p>
+                <p *ngIf="orderfood.get('name')?.errors?.['minlength']">Minimum 3 characters required</p>
+                <p *ngIf="orderfood.get('name')?.errors?.['maxlength']">Maximum 15 characters required</p>
+            </div>
+        </div>
+    </div> 
+
+                   <!-- Mobile Number -->
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="mobile"> Mobile: </label>
+        </div>
+        <div class="col-sm-8">
+            <input type="password" id="mobile" class="form-control" placeholder="Enter mobile number" name="mobile" formControlName="mobile" [ngClass]="orderfood.get('mobile')?.invalid && orderfood.get('mobile')?.touched ? 'r' : '' ">
+            <div *ngIf="orderfood.get('mobile')?.invalid && orderfood.get('mobile')?.touched">
+                <p *ngIf="orderfood.get('mobile')?.errors?.['required']">*Invalid field</p>
+                <p *ngIf="orderfood.get('mobile')?.errors?.['minlength']">*Minimum 10 characters required</p>
+                <p *ngIf="orderfood.get('mobile')?.errors?.['maxlength']">*Maximum 10 characters required</p>
+            </div>
+        </div>
+    </div> 
+
+                   <!-- Email Address -->
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="email"> Email: </label>
+        </div>
+        <div class="col-sm-8">
+            <input type="password" id="email" class="form-control" placeholder="Enter email id " name="email" formControlName="email" [ngClass]="orderfood.get('email')?.invalid && orderfood.get('email')?.touched ? 'r' : '' ">
+            <div *ngIf="orderfood.get('email')?.invalid && orderfood.get('email')?.touched">
+                <p *ngIf="orderfood.get('email')?.errors?.['required']">*Invalid field</p>
+                <p *ngIf="orderfood.get('email')?.errors?.['email']">*Special characters required</p>
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="row form-group">
+        <div class="col-sm-4">
+            <label for="password"> Password: </label>
+        </div>
+        <div class="col-sm-8">
+            <input type="text" id="password" class="form-control" placeholder="Enter password" name="password" formControlName="password" [ngClass]="orderfood.get('password')?.invalid && orderfood.get('password')?.touched ? 'r' : '' ">
+            <div *ngIf="orderfood.get('password')?.invalid && orderfood.get('password')?.touched">
+                <p *ngIf="orderfood.get('password')?.errors?.['required']">*Invalid field</p>
+                <p *ngIf="orderfood.get('password')?.errors?.['pattern']">*Uppercase,Lowercase,Number&Special character required</p>
+            </div>
+        </div>
+    </div> 
+
+    
+                   <!-- Address Line -->
+
+    <h2><label> Address:</label></h2>
+    <div formGroupName="address">
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="address-line"> Address Line: </label>
+            </div>
+            <div class="col-sm-8">
+                <input type="password" id="address-line" class="form-control" placeholder="Street Name" name="street" formControlName="street" >
+                <div *ngIf="orderfood.get('address')?.get('street')?.invalid && orderfood.get('address')?.get('street')?.touched">
+                    <p *ngIf="orderfood.get('address')?.get('street')?.errors?.['required']">*Invalid field</p>
+                </div>
+            </div>
+        </div>
+
+                   <!-- Address Line 2 -->
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="city"> City: </label>
+            </div>
+            <div class="col-sm-8">
+                <input type="password" id="city" class="form-control" placeholder="City Name" name="city" formControlName="city" >
+                <div *ngIf="orderfood.get('address')?.get('city')?.invalid && orderfood.get('address')?.get('city')?.touched">
+                    <p *ngIf="orderfood.get('address')?.get('city')?.errors?.['required']">*Invalid field</p>
+                </div>
+            </div>
+        </div>
+
+                   <!-- Address Line 3-->
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="state"> State: </label>
+            </div>
+            <div class="col-sm-8">
+                <input type="password" id="state" class="form-control" placeholder="State" name="state" formControlName="state" >
+                <div *ngIf="orderfood.get('address')?.get('state')?.invalid && orderfood.get('address')?.get('state')?.touched">
+                    <p *ngIf="orderfood.get('address')?.get('state')?.errors?.['required']">*Invalid field</p>
+                </div>
+            </div>
+        </div>
+
+                   <!-- Address Line 4-->
+
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label for="pincode"> Pincode: </label>
+            </div>
+            <div class="col-sm-8">
+                <input type="password" id="pincode" class="form-control" placeholder="Pincode" name="pincode" formControlName="pincode" >
+                <div *ngIf="orderfood.get('address')?.get('pincode')?.invalid && orderfood.get('address')?.get('pincode')?.touched">
+                    <p *ngIf="orderfood.get('address')?.get('pincode')?.errors?.['required']">*Invalid field</p>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div>
+        <div class="row form-group">
+            <div class="col-sm-4">
+                <label> Payment Method: </label>
+            </div>
+            <div class="col-sm-8">
+                <label for="card">Card</label>
+                <input type="radio" id="card"  name="details" formControlName="details" value="card">
+                <label for="upi">UPI</label>
+                <input type="radio" id="upi" name="details" formControlName="details" value="upiId">
+            </div>
+        </div>
+
+
+        <div *ngIf="orderfood.get('details')?.value=='card'">
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label> Card Number: </label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="password" id="card" formControlName="cardnumber" placeholder="Enter card number">
+                        <div *ngIf="orderfood.get('cardnumber')?.invalid && orderfood.get('cardnumber')?.touched">
+                            <p *ngIf="orderfood.get('cardnumber')?.errors?.['required']">*Invalid field</p>        
+                        </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label> Expiry: </label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="password" id="card" formControlName="expiry" placeholder="Expiry date">
+                        <div *ngIf="orderfood.get('expiry')?.invalid && orderfood.get('expiry')?.touched">
+                            <p *ngIf="orderfood.get('expiry')?.errors?.['required']">*Invalid field</p>        
+                        </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label> CVV: </label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="password" id="card" formControlName="cvv" placeholder="Enter cvv ">
+                        <div *ngIf="orderfood.get('cvv')?.invalid && orderfood.get('cvv')?.touched">
+                            <p *ngIf="orderfood.get('cvv')?.errors?.['required']">*Invalid field</p>        
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="orderfood.get('details')?.value=='upiId'">
+            <div class="row form-group">
+                <div class="col-sm-4">
+                    <label for="upi-id"> UPI Id: </label>
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" id="upi-id" formControlName="upiId" placeholder="example@upi">
+                        <div *ngIf="orderfood.get('upiId')?.invalid && orderfood.get('upiId')?.touched">
+                            <p *ngIf="orderfood.get('upiId')?.errors?.['required']">*Invalid field</p>        
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div formArrayName="items">
+        <div *ngFor="let item of itemsFormArray.controls;let i=index">
+            <div formGroupName="{{i}}">
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label for="item-name"> Item Name: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="password" id="item-name" class="form-control" placeholder="Name of the item" name="name" formControlName="name" >
+                            <div *ngIf="itemsFormArray.controls[i].get('name')?.invalid && itemsFormArray.controls[i].get('name')?.touched">
+                                <p *ngIf="itemsFormArray.controls[i].get('name')?.errors?.['required']">*Invalid Field</p>
+                            </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label for="item-quantity"> Quantity: </label>
+                    </div>
+                    <div class="col-sm-8">
+                        <input type="password" id="item-quantity" class="form-control" placeholder="Quantity" name="quantity" formControlName="quantity" >
+                            <div *ngIf="itemsFormArray.controls[i].get('quantity')?.invalid && itemsFormArray.controls[i].get('quantity')?.touched">
+                                <p *ngIf="itemsFormArray.controls[i].get('quantity')?.errors?.['required']">*Invalid Field</p>
+                                <p *ngIf="itemsFormArray.controls[i].get('quantity')?.errors?.['minlength']">*Minimum 1 quantity</p>
+                                <p *ngIf="itemsFormArray.controls[i].get('quantity')?.errors?.['maxlength']">*Maximum 20 quantity</p>        
+                            </div>    
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4">
+                        <label></label>
+                    </div>
+                    <div class="col-sm-8">
+                        <button (click)="delete(i)">Delete</button>
+                    </div>
+                </div>                    
+            </div>           
+        </div>
+    </div>
+</form>
+<button (click)="submit()">Submit</button>
+<button (click)="addtocart()">Add to Cart</button>
+
+

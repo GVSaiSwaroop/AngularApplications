@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+.r {
+    border: 2px solid rgb(192, 33, 33);
+    outline: 0;
+}
+p {
+    color: red;
+}
+

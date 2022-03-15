@@ -1,0 +1,153 @@
+<div>
+    <form [formGroup]="applicationForm">
+        <h1>Application Form</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td><label for="1">Name:</label></td>
+                    <td>
+                        <input [ngClass]="applicationForm.get('name')?.invalid && applicationForm.get('name')?.touched ? 'r' : '' " type="text" formControlName="name" placeholder="Enter your Name" id="1">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <!-- <p *ngIf="applicationForm.get('name')?.invalid">Invalid Field</p>
+                        <p>value:{{applicationForm.get("email")?.value}}</p>
+                        <p>errors:{{applicationForm.get("email")?.errors|json}}</p>
+                        <p>invalid:{{applicationForm.get("email")?.invalid}}</p>
+                        <p>touched:{{applicationForm.get("email")?.touched}}</p>
+                        <p>dirty:{{applicationForm.get("email")?.dirty}}</p>
+                        <p>pristine:{{applicationForm.get("email")?.pristine}}</p>
+                        <p>status:{{applicationForm.get("email")?.status}}</p> -->
+                        <ng-container *ngIf="applicationForm.get('name')?.invalid && applicationForm.get('name')?.touched">
+                            <p *ngIf="applicationForm.get('name')?.errors?.['required']">*Invalid Field</p>
+                            <p *ngIf="applicationForm.get('name')?.errors?.['minlength']">*Minimum Characters Required</p>
+                            <p *ngIf="applicationForm.get('name')?.errors?.['maxlength']">*Maximum Characters Required</p>
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="2">Email:</label></td>
+                    <td><input [ngClass]="applicationForm.get('email')?.invalid && applicationForm.get('email')?.touched ? 'r' : '' " type="text" formControlName="email" placeholder="Enter your Email" id="2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <ng-container *ngIf="applicationForm.get('email')?.invalid && applicationForm.get('email')?.touched">
+                            <p *ngIf="applicationForm.get('email')?.errors?.['required']">*Invalid Field</p>
+                            <p *ngIf="applicationForm.get('email')?.errors?.['email']">*Special characters required</p>
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <label for="3">Male</label><input type="radio" formControlName="gender" value="male"  name="gender" id="3">
+                        <label for="4">Female</label><input type="radio" formControlName="gender" value="female"  name="gender" id="4">
+                    </td>
+                </tr>
+                <ng-container formGroupName="address">
+                <tr>
+                    <td><label for="5">Address:</label></td>
+                    <td><textarea id="5" cols="23" rows="2" formControlName="street"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="">City:</label></td>
+                    <td><input type="text" formControlName="city" placeholder="City Name"></td>
+                </tr>
+                <tr>
+                    <td><label for="">State:</label></td>
+                    <td><select name="" id="" formControlName="state">
+                        <option>Select</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Telangana</option>
+                        <option>Karnataka</option>
+                        <option>Tamilnadu</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="">Pincode:</label></td>
+                    <td><input [ngClass]="applicationForm.get('address')?.get('pincode')?.invalid && applicationForm.get('address')?.get('pincode')?.touched ? 'r' : '' " type="number" formControlName="pincode"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <ng-container *ngIf="applicationForm.get('address')?.get('pincode')?.invalid && applicationForm.get('address')?.get('pincode')?.touched">
+                            <p *ngIf="applicationForm.get('address')?.get('pincode')?.errors?.['required']">*Invalid Field</p>
+                            <p *ngIf="applicationForm.get('address')?.get('pincode')?.errors?.['min']">*Minimum 6 characters required</p>
+                            <p *ngIf="applicationForm.get('address')?.get('pincode')?.errors?.['max']">*Maximum 6 characters required</p>
+                        </ng-container>
+                    </td>
+                </tr>
+                </ng-container>
+                <ng-container formArrayName="cards">
+                    <ng-container *ngFor="let card of cardsFormArray.controls;let i=index">
+                        <ng-container formGroupName="{{i}}">
+                            <tr>
+                                <td><label for="">Card Number:</label></td>
+                                <td><input [ngClass]="cardsFormArray.controls[i].get('cardnumber')?.invalid && cardsFormArray.controls[i].get('cardnumber')?.touched ? 'r' : '' " type="text" formControlName="cardnumber"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <ng-container *ngIf="cardsFormArray.controls[i].get('cardnumber')?.invalid && cardsFormArray.controls[i].get('cardnumber')?.touched">
+                                        <p *ngIf="cardsFormArray.controls[i].get('cardnumber')?.errors?.['required']">*Invalid Field</p>
+                                        <p *ngIf="cardsFormArray.controls[i].get('cardnumber')?.errors?.['minlength']">*Minimum 16 characters required</p>
+                                        <p *ngIf="cardsFormArray.controls[i].get('cardnumber')?.errors?.['maxlength']">*Maximum 16 characters required</p>        
+                                    </ng-container>    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="">Expiry Date:</label></td>
+                                <td><input type="text" formControlName="expirydate"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="">CVV:</label></td>
+                                <td><input type="text" formControlName="cvv"></td>
+                            </tr>
+                            <button (click)="delete(i)">Delete</button>
+                        </ng-container>              
+                    </ng-container>
+                </ng-container> 
+                <tr>
+                    <td><label>Branch:</label></td>
+                    <td><label>MPC</label><input type="radio" formControlName="branch" name="branch" value="MPC"><label>CEC</label><input type="radio" formControlName="branch" name="branch" value="CEC"></td>
+                </tr>
+                <ng-container *ngIf="applicationForm.get('branch')?.value=='MPC'">
+                <tr>
+                    <td><label>Mathematics:</label></td>
+                    <td><input type="text" formControlName="mathematics"></td>
+                </tr>
+                <tr>
+                    <td><label>Physics:</label></td>
+                    <td><input type="text" formControlName="physics"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Chemistry:</label></td>
+                    <td><input type="text" formControlName="chemistry"></td>
+                </tr>
+                </ng-container>
+                <ng-container *ngIf="applicationForm.get('branch')?.value=='CEC'">
+                <tr>
+                    <td><label>Civics:</label></td>
+                    <td><input type="text" formControlName="civics"></td>
+                </tr>
+                <tr>
+                    <td><label >Economics:</label></td>
+                    <td><input type="text" formControlName="economics"></td>
+                </tr>
+
+                <tr>
+                    <td><label>Commerce:</label></td>
+                    <td><input type="text" formControlName="commerce"></td>
+                </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <button (click)="addtocart()">Add to cart</button> 
+        <button (click)="submit()">Submit</button> 
+    </form>
+</div>

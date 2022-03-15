@@ -1,0 +1,13 @@
+<div  class="row">
+    <div *ngFor="let product of products" class="col-lg-3 col=md-4 col-sm-6 col-12">
+        <p>{{product.id}}</p>
+        <p>{{product.title}}</p>
+        <p>{{product.price}}</p>
+        <p>{{product.description}}</p>
+        <p>{{product.category}}</p>
+        <img src="{{product.image}}" width="100px" height="100px" alt="">
+        <p>{{product.rating|json}}</p>
+        <button>Buy Now</button>
+        <button>Add to cart</button>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="parent">
+    <div class="div1">
+        <h1>Registration Form</h1>
+        <label for="">Name:</label>
+        <input type="text" placeholder="Enter your name" [(ngModel)]="name">
+        <br>
+        <label for="">Email:</label>
+        <input type="email" placeholder="Enter your email" [(ngModel)]="email">
+        <br>
+        <label for="">DOB:</label>
+        <input type="date"[(ngModel)]="dob">
+        <br>
+        <label for="">Phone No:</label>
+        <input type="text" placeholder="Enter your number" [(ngModel)]="number">
+        <br>
+        <label for="">Age:</label>
+        <input type="number" placeholder="Enter your age" [(ngModel)]="age">
+        <br>
+        <label for="">Balance:</label>
+        <input type="number" placeholder="Enter your balance" [(ngModel)]="balance">
+        <br>
+        <label for="">City:</label>
+        <select name="" id="" [(ngModel)]="city">
+            <option></option>
+            <option>Hyderabad</option>
+            <option>Kadapa</option>
+            <option>Vijayawada</option>
+        </select>
+        <br>
+        <button (click)="SignUp()">Sign Up</button>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Number</th>
+                    <th>Age</th>
+                    <th>Balance</th>
+                    <th>City</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of persons;let i=index">
+                    <ng-container *ngIf="person.balance>=0">
+                    <td>{{person.name|lowercase}}</td>
+                    <td>{{person.email|uppercase}}</td>
+                    <td>{{person.dob|date:'short'}}</td>
+                    <td>{{person.number}}</td>
+                    <td [ngClass]="person.age>18?'text-success':'text-danger'">{{person.age}}</td>
+                    <td>{{person.balance}}</td>
+                    <td>{{person.city}}</td>
+                    <td><button (click)="delete(i)">Delete</button></td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+        <p>{{a|json}}</p>
+    </div>
+</div>

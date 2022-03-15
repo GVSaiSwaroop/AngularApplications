@@ -1,0 +1,39 @@
+<div>
+    <form [formGroup]="vehicleForm">
+        <h1>Vehicle Details</h1>
+        <table>
+            <tbody>
+                <tr>
+                    <td><label for="">Vehicle:</label></td>
+                    <td><input type="text" formControlName="Vehicle"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Manufacturer:</label></td>
+                    <td><input type="text" formControlName="manufacturer"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Model:</label></td>
+                    <td><input type="text" formControlName="model"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Type:</label></td>
+                    <td><input type="text" formControlName="type"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Fuel:</label></td>
+                    <td><input type="text" formControlName="fuel"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Color:</label></td>
+                    <td><input type="text" formControlName="color"></td>
+                </tr>
+                <tr>
+                    <td><label for="">Id:</label></td>
+                    <td><input type="number" formControlName="id"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button (click)="submit()">Submit</button> 
+        <button (click)="update()">Update</button>               
+    </form>
+</div>

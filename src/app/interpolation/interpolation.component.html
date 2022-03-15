@@ -1,0 +1,90 @@
+<p>interpolation works!</p>
+<h1>{{name}}</h1>
+<h3>{{age}}</h3>
+<h2>{{product.name}}</h2>
+<h2>{{product.price}}</h2>
+<h3>{{product}}</h3>
+<h5>{{phones[1]}}</h5>
+<h2>{{phones}}</h2>
+<p *ngFor="let phone of phones">{{phone}}</p>
+<div *ngFor="let user of users">
+    <p>Name:{{user.name}}</p>
+    <p>Age:{{user.age}}</p>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Image Url</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Contact Number</td>
+            <td>Age</td>
+            <td>Dare of Birth</td>
+            <td>Salary</td>
+            <td>Address</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.id}}</td>
+            <td><img src="{{employee.imageUrl}}" alt="image"></td>
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.contactNumber}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.dob}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.address}}</td>
+
+        </tr>
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Vehicle</td>
+            <td>Manufacturer</td>
+            <td>Model</td>
+            <td>Type</td>
+            <td>Fuel</td>
+            <td>Color</td>
+            <td>id</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vehicle of Vehicles">
+            <td>{{vehicle.Vehicle}}</td>
+            <td>{{vehicle.manufacturer}}</td>
+            <td>{{vehicle.model}}</td>
+            <td>{{vehicle.type}}</td>
+            <td>{{vehicle.fuel}}</td>
+            <td>{{vehicle.color}}</td>
+            <td>{{vehicle.id}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+<input [(ngModel)]="contactNumber">
+<h1>{{contactNumber}}</h1>
+
+

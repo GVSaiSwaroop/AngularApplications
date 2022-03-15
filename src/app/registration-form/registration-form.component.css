@@ -1,0 +1,16 @@
+.parent {
+    height: 100vh;
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div1 {
+    width: 60vw;
+    height: 80vh;
+    background-color: white;
+    text-align: center;
+}
+h1 {
+    margin-bottom: 100px;
+}

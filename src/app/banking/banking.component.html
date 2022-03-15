@@ -1,0 +1,29 @@
+<input type="text" placeholder="Enter Data" [(ngModel)]="search">
+<button (click)="filter()">Search</button>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Created At</td>
+            <td>Account Name</td>
+            <td>Available Balance</td>
+            <td>Currency</td>
+            <td>User Image</td>
+            <td>Account Number</td>
+            <td>Id</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let detail of details">
+            <td>{{detail.createdAt}}</td>
+            <td>{{detail.account_name}}</td>
+            <td>{{detail.available_balance}}</td>
+            <td>{{detail.currency}}</td>
+            <td><img src="{{detail.user_image}}" alt=""></td>
+            <td>{{detail.account_number}}</td>
+            <td>{{detail.id}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
